@@ -8,7 +8,7 @@ import wandb
 from composer import Trainer
 from composer.callbacks import LRMonitor, MemoryMonitor, SpeedMonitor
 from composer.loggers import ObjectStoreLogger, ProgressBarLogger, WandBLogger
-from composer.optim import DecoupledAdamW
+from composer.optim import DecoupledAdamW, DecoupledSGDW
 from composer.optim.scheduler import (ConstantWithWarmupScheduler,
                                       CosineAnnealingWithWarmupScheduler)
 from composer.utils import S3ObjectStore, dist, reproducibility
@@ -35,11 +35,13 @@ def build_logger(name, kwargs):
     else:
         raise ValueError(f'Not sure how to build logger: {name}')
 
+
 def build_object_store(name, kwargs):
     if name == 's3':
         return S3ObjectStore(**kwargs)
     else:
         raise ValueError(f'Not sure how to build object store: {name}')
+
 
 def build_callback(name, kwargs):
     if name == 'lr_monitor':
@@ -52,16 +54,31 @@ def build_callback(name, kwargs):
         raise ValueError(f'Not sure how to build callback: {name}')
 
 
-def build_scheduler(cfg):
-    if cfg.name == 'constant_with_warmup':
-        return ConstantWithWarmupScheduler(
-            t_warmup=cfg.t_warmup)
-    elif cfg.name == 'cosine_with_warmup':
-        return CosineAnnealingWithWarmupScheduler(
-            t_warmup=cfg.t_warmup,
-            alpha_f=cfg.alpha_f)
+def build_optimizer(cfg, model):
+    if cfg.name == 'decoupled_adamw':
+        return DecoupledAdamW(model.parameters(),
+                                   lr=cfg.lr,
+                                   betas=cfg.betas,
+                                   eps=cfg.eps,
+                                   weight_decay=cfg.weight_decay)
+    elif cfg.name == 'decoupled_sgdw':
+        return DecoupledSGDW(model.parameters(),
+                                  lr=cfg.lr,
+                                  momentum=cfg.momentum,
+                                  weight_decay=cfg.weight_decay)
     else:
         raise ValueError(f'Not sure how to build scheduler: {cfg.name}')
+
+
+def build_scheduler(cfg):
+    if cfg.name == 'constant_with_warmup':
+        return ConstantWithWarmupScheduler(t_warmup=cfg.t_warmup)
+    elif cfg.name == 'cosine_with_warmup':
+        return CosineAnnealingWithWarmupScheduler(t_warmup=cfg.t_warmup,
+                                                  alpha_f=cfg.alpha_f)
+    else:
+        raise ValueError(f'Not sure how to build scheduler: {cfg.name}')
+
 
 # Coming soon: this conversion math will be done inside Composer Trainer rather than entrypoint
 def get_batch_size_info(cfg):
@@ -74,7 +91,9 @@ def get_batch_size_info(cfg):
         device_eval_batch_size = device_train_batch_size
     elif isinstance(device_train_microbatch_size, int):
         if device_train_microbatch_size > device_train_batch_size:
-            print (f"WARNING: device_train_microbatch_size > device_train_batch_size, will be reduced from {device_train_microbatch_size} -> {device_train_batch_size}.")
+            print(
+                f"WARNING: device_train_microbatch_size > device_train_batch_size, will be reduced from {device_train_microbatch_size} -> {device_train_batch_size}."
+            )
             cfg.device_train_microbatch_size = device_train_batch_size
             device_train_microbatch_size = device_train_batch_size
         device_train_grad_accum = device_train_batch_size // device_train_microbatch_size
@@ -94,7 +113,8 @@ def main(cfg):
 
     # Read FSDP Config as a dict
     fsdp_config = cfg.get('fsdp_config', None)
-    fsdp_config = om.to_container(fsdp_config, resolve=True) if fsdp_config else None
+    fsdp_config = om.to_container(fsdp_config,
+                                  resolve=True) if fsdp_config else None
 
     # Build Model
     # For fast initialization, use `meta` device
@@ -105,7 +125,8 @@ def main(cfg):
     print(f'{n_params=:.2e}')
 
     # Get batch size info
-    device_train_batch_size, device_train_grad_accum, device_eval_batch_size, device_eval_microbatch_size = get_batch_size_info(cfg)
+    device_train_batch_size, device_train_grad_accum, device_eval_batch_size, device_eval_microbatch_size = get_batch_size_info(
+        cfg)
 
     # Dataloaders
     print("Building train loader...")
@@ -114,22 +135,22 @@ def main(cfg):
     eval_loader = build_dataloader(cfg.eval_loader, device_eval_batch_size)
 
     # Optimizer
-    assert cfg.optimizer.name == 'decoupled_adamw'
-    optimizer = DecoupledAdamW(
-        model.parameters(),
-        lr=cfg.optimizer.lr,
-        betas=cfg.optimizer.betas,
-        eps=cfg.optimizer.eps,
-        weight_decay=cfg.optimizer.weight_decay)
+    optimizer = build_optimizer(cfg.optimizer, model)
 
     # Scheduler
     scheduler = build_scheduler(cfg.scheduler)
 
     # Loggers
-    loggers = [build_logger(name, logger_cfg) for name, logger_cfg in cfg.loggers.items()]
+    loggers = [
+        build_logger(name, logger_cfg)
+        for name, logger_cfg in cfg.loggers.items()
+    ]
 
     # Callbacks
-    callbacks = [build_callback(name, callback_cfg) for name, callback_cfg in cfg.callbacks.items()]
+    callbacks = [
+        build_callback(name, callback_cfg)
+        for name, callback_cfg in cfg.callbacks.items()
+    ]
 
     # (Optional) Load object store
     load_object_store = cfg.get('load_object_store', None)
@@ -166,11 +187,16 @@ def main(cfg):
     print("Logging config...")
     config_dict = om.to_container(cfg, resolve=True)
     config_dict.update({
-        'n_gpus': dist.get_world_size(),
-        'n_params': n_params,
-        'device_train_batch_size': device_train_batch_size,
-        'device_eval_batch_size': device_eval_batch_size,
-        'device_eval_microbatch_size': device_eval_microbatch_size,
+        'n_gpus':
+        dist.get_world_size(),
+        'n_params':
+        n_params,
+        'device_train_batch_size':
+        device_train_batch_size,
+        'device_eval_batch_size':
+        device_eval_batch_size,
+        'device_eval_microbatch_size':
+        device_eval_microbatch_size,
     })
     if wandb.run is not None:
         wandb.config.update(config_dict)
