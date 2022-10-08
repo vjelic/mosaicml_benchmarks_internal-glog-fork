@@ -24,6 +24,7 @@ def parse_args() -> Namespace:
     args.add_argument('--shard_size_limit', type=int, default=1 << 28)
     args.add_argument('--tqdm', type=int, default=1)
     args.add_argument('--splits', nargs='+', default=['train', 'val'])
+    args.add_argument('--num_workers', type=int, default=64)
 
     return args.parse_args()
 
@@ -59,7 +60,7 @@ def get(split: str) -> IterableDataset:
     return ShardedC4()
 
 
-def each(dataset: IterableDataset) -> Iterable[Dict[str, bytes]]:
+def each(dataset: IterableDataset, num_workers: int) -> Iterable[Dict[str, bytes]]:
     """Generator over each dataset sample.
 
     Args:
@@ -68,7 +69,7 @@ def each(dataset: IterableDataset) -> Iterable[Dict[str, bytes]]:
     Yields:
         Sample dicts.
     """
-    num_workers = min(64, dataset.num_shards())
+    num_workers = min(num_workers, dataset.num_shards())
     batch_size = 512
     # If using multiple workers, configure each worker to prefetch as many samples as it can, up to the aggregate device batch size
     # If not using workers, the torch DataLoader expects the default value for prefetch_factor, which non-intuitively must be 2.
@@ -112,7 +113,7 @@ def main(args: Namespace) -> None:
                                     fields=fields,
                                     shard_size_limit=args.shard_size_limit,
                                     compression=None) as out:
-            out.write_samples(samples=each(dataset), use_tqdm=bool(args.tqdm), total=expected_num_samples)
+            out.write_samples(samples=each(dataset, args.num_workers), use_tqdm=bool(args.tqdm), total=expected_num_samples)
 
 
 if __name__ == '__main__':
