@@ -132,6 +132,7 @@ def main(cfg):
 
     # Get batch size info
     cfg = update_batch_size_info(cfg)
+    print(cfg)
 
     # Read FSDP Config as a dict
     fsdp_config = cfg.get('fsdp_config', None)
