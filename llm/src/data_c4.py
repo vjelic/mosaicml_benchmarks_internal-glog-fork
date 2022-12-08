@@ -68,9 +68,9 @@ class StreamingC4(StreamingDataset):
                          shuffle=shuffle,
                          predownload=prefetch,
                          keep_zip=False,
-                         retry=retry,
-                         timeout=timeout,
-                         hash=None,
+                         download_retry=retry,
+                         download_timeout=timeout,
+                         validate_hash=None,
                          shuffle_seed=987,
                          batch_size=batch_size)
         self.tokenizer_name = tokenizer_name
