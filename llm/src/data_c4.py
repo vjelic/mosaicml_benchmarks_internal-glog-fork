@@ -11,11 +11,11 @@ from typing import Any, Dict, Iterator, Optional
 import transformers
 from omegaconf import DictConfig
 from omegaconf import OmegaConf as om
-from streaming import Dataset
+from streaming import StreamingDataset
 from torch.utils.data import DataLoader
 
 
-class StreamingC4(Dataset):
+class StreamingC4(StreamingDataset):
     """Implementation of the C4 dataset using MosaicML's streaming Dataset V2.
 
     Args:
