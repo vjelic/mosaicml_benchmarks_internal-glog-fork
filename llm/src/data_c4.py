@@ -66,7 +66,7 @@ class StreamingC4(StreamingDataset):
                          local=local,
                          split=split,
                          shuffle=shuffle,
-                         prefetch=prefetch,
+                         predownload=prefetch,
                          keep_zip=False,
                          retry=retry,
                          timeout=timeout,
