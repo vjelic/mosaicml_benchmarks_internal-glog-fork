@@ -71,6 +71,7 @@ class StreamingC4(StreamingDataset):
                          retry=retry,
                          timeout=timeout,
                          hash=None,
+                         shuffle_seed=987,
                          batch_size=batch_size)
         self.tokenizer_name = tokenizer_name
         self.max_seq_len = max_seq_len
