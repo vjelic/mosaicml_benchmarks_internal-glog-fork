@@ -1,7 +1,7 @@
 flash-attn==0.2.2
-omegaconf==2.2.3
-wandb==0.13.4
-lm-eval @ git+https://github.com/bmosaicml/lm-evaluation-harness-composergpt-integration.git@master
+# omegaconf==2.2.3
+# wandb==0.13.4
+# lm-eval @ git+https://github.com/bmosaicml/lm-evaluation-harness-composergpt-integration.git@master
 # torchvision==0.14.0
 # torchtext==0.14.0
 # torch==1.13.0
