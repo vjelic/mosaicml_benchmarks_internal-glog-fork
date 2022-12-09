@@ -90,8 +90,8 @@ def print_results(outputs):
     print("one vs two diff: (sum, max)", (one_vs_two_diff.sum(), one_vs_two_diff.max()))
     print("one vs eight diff: (sum, max)", (one_vs_eight_diff.sum(), one_vs_eight_diff.max()))
     print("two vs four diff: (sum, max)", (two_vs_four_diff.sum(), two_vs_four_diff.max()))
-    print("four vs eight diff: (sum, max", (four_vs_eight_diff.sum(), four_vs_eight_diff.max()))
-    print("six vs eight diff: (sum, max", (six_vs_eight_diff.sum(), six_vs_eight_diff.max()))
+    print("four vs eight diff: (sum, max)", (four_vs_eight_diff.sum(), four_vs_eight_diff.max()))
+    print("six vs eight diff: (sum, max)", (six_vs_eight_diff.sum(), six_vs_eight_diff.max()))
     print("two (first item) vs two (second item) diff: (sum, max)", (two_vs_two_within_diff.sum(), two_vs_two_within_diff.max()))
 
 def main():
