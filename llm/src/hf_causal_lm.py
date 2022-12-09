@@ -44,9 +44,9 @@ def prepare_hf_causal_lm_model_for_fsdp(model):
 
 class ComposerHFCausalLM(ComposerModel):
 
-    def __init__(self, cfg):
+    def __init__(self, cfg, config_overrides):
         super().__init__()
-        config = AutoConfig.from_pretrained(cfg.hf_config_name_or_path)
+        config = AutoConfig.from_pretrained(cfg.hf_config_name_or_path, **config_overrides)
         self.model = AutoModelForCausalLM.from_config(config)
         self.train_metrics = {
             'LanguageCrossEntropy': LanguageCrossEntropy(config.vocab_size),
