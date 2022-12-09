@@ -56,10 +56,10 @@ def create_random_input(repeats):
         }
         batches.append(batch)
 
-    # for batch in batches:
-    #     assert all(row == ids for row in batch['input_ids'])
-    #     assert all(row == mask for row in batch['attention_mask'])
-    #     assert all(row == ids for row in batch['labels'])
+    for batch in batches:
+        assert all(torch.equal(row, ids[0, :]) for row in batch['input_ids'])
+        assert all(torch.equal(row, mask[0, :]) for row in batch['attention_mask'])
+        assert all(torch.equal(row, ids[0, :]) for row in batch['labels'])
     return batches
 
 def get_outputs(model_init_fn, inputs, autocast_enabled, autocast_dtype, device):
