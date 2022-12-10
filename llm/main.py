@@ -189,7 +189,8 @@ def main(cfg):
         loggers=loggers,
         callbacks=callbacks,
         precision=cfg.precision,
-        device_train_microbatch_size=cfg.device_train_microbatch_size,
+        # device_train_microbatch_size=cfg.device_train_microbatch_size,
+        grad_accum=cfg.grad_accum,
         fsdp_config=fsdp_config,  # type: ignore
         save_folder=cfg.get('save_folder', None),
         save_interval=cfg.get('save_interval', '1000ba'),
