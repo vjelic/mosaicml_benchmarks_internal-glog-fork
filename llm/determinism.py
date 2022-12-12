@@ -1,6 +1,5 @@
 from src.mosaic_gpt import ComposerMosaicGPT, MosaicGPT
 from src.hf_causal_lm import ComposerHFCausalLM
-from src.data_c4 import build_c4_dataloader
 from omegaconf import OmegaConf as om
 from composer.utils import reproducibility, dist
 import os
