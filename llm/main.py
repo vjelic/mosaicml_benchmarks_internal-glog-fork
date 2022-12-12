@@ -189,9 +189,10 @@ def main(cfg):
         loggers=loggers,
         callbacks=callbacks,
         precision=cfg.precision,
-        # device_train_microbatch_size=cfg.device_train_microbatch_size,
-        grad_accum=cfg.grad_accum,
+        device_train_microbatch_size=cfg.device_train_microbatch_size,
+        # grad_accum=cfg.grad_accum,
         fsdp_config=fsdp_config,  # type: ignore
+        save_overwrite=cfg.get('save_overwrite', False),
         save_folder=cfg.get('save_folder', None),
         save_interval=cfg.get('save_interval', '1000ba'),
         save_num_checkpoints_to_keep=cfg.get('save_num_checkpoints_to_keep',
