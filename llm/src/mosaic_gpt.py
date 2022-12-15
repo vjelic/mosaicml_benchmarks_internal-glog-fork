@@ -42,7 +42,7 @@ class TorchCausalAttention(nn.Module):
         torch.full(size=self.mask.shape,
                    fill_value=float('-inf'),
                    out=self.mask)
-        torch.triu(input=self.mask, diagonal=1, out=self.mask)
+        self.mask = torch.triu(input=self.mask.to(torch.float32), diagonal=1).to(torch.float16)
 
     def forward(self, x, key_padding_mask):
         # Two important disclaimers
