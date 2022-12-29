@@ -8,8 +8,8 @@ from mmcv.runner import BaseModule, auto_fp16, force_fp32
 
 from mmseg.core import build_pixel_sampler
 from mmseg.ops import resize
-from ..builder import build_loss
-from ..losses import accuracy
+from ..utils.builder import build_loss
+from ..utils.accuracy import accuracy
 
 
 class BaseDecodeHead(BaseModule, metaclass=ABCMeta):
