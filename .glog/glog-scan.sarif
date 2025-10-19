@@ -12,6 +12,54 @@
           "informationUri": "https://www.glog.ai",
           "rules": [
             {
+              "id": "8b66e53e-f4ad-35fc-ab3e-f78ce79c0c52",
+              "name": "resources.rules.return-in-init",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.return-in-init"
+              },
+              "fullDescription": {
+                "text": "`return` should never appear inside a class __init__ function. This will cause a runtime error."
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "error"
+              },
+              "help": {
+                "text": "`return` should never appear inside a class __init__ function. This will cause a runtime error.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "`return` should never appear inside a class __init__ function. This will cause a runtime error.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.return-in-init"
+                ]
+              }
+            },
+            {
+              "id": "e051ed7c-b820-3d13-93b7-e3e99ae3dc53",
+              "name": "resources.rules.return-in-init",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.return-in-init"
+              },
+              "fullDescription": {
+                "text": "`return` should never appear inside a class __init__ function. This will cause a runtime error."
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "error"
+              },
+              "help": {
+                "text": "`return` should never appear inside a class __init__ function. This will cause a runtime error.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "`return` should never appear inside a class __init__ function. This will cause a runtime error.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.return-in-init"
+                ]
+              }
+            },
+            {
               "id": "b40d7874-bdd5-38ff-a0cb-c808be37148d",
               "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "shortDescription": {
@@ -61,54 +109,6 @@
               }
             },
             {
-              "id": "8b66e53e-f4ad-35fc-ab3e-f78ce79c0c52",
-              "name": "resources.rules.return-in-init",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.return-in-init"
-              },
-              "fullDescription": {
-                "text": "`return` should never appear inside a class __init__ function. This will cause a runtime error."
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "error"
-              },
-              "help": {
-                "text": "`return` should never appear inside a class __init__ function. This will cause a runtime error.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "`return` should never appear inside a class __init__ function. This will cause a runtime error.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.return-in-init"
-                ]
-              }
-            },
-            {
-              "id": "e051ed7c-b820-3d13-93b7-e3e99ae3dc53",
-              "name": "resources.rules.return-in-init",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.return-in-init"
-              },
-              "fullDescription": {
-                "text": "`return` should never appear inside a class __init__ function. This will cause a runtime error."
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "error"
-              },
-              "help": {
-                "text": "`return` should never appear inside a class __init__ function. This will cause a runtime error.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "`return` should never appear inside a class __init__ function. This will cause a runtime error.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.return-in-init"
-                ]
-              }
-            },
-            {
               "id": "66dca197-1044-3ae0-9ac5-027cafb92b72",
               "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "shortDescription": {
@@ -134,27 +134,27 @@
               }
             },
             {
-              "id": "a26929a1-88d4-3a44-8b5e-3909790e1989",
-              "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
+              "id": "39c821e6-3812-3b56-aecb-2bf70551d74e",
+              "name": "trailofbits.python.pickles-in-pytorch.pickles-in-pytorch",
               "shortDescription": {
-                "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
+                "text": "Opengrep Finding: trailofbits.python.pickles-in-pytorch.pickles-in-pytorch"
               },
               "fullDescription": {
-                "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
+                "text": "Functions reliant on pickle can result in arbitrary code execution.  Consider loading from `state_dict`, using fickling, or switching to a safer serialization method like ONNX"
               },
               "defaultConfiguration": {
                 "enabled": true,
-                "level": "warning"
+                "level": "error"
               },
-              "helpUri": "https://semgrep.dev/r/trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
+              "helpUri": "https://semgrep.dev/r/trailofbits.python.pickles-in-pytorch.pickles-in-pytorch",
               "help": {
-                "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.automatic-memory-pinning.automatic-memory-pinning)\n - [https://pytorch.org/docs/stable/data.html#memory-pinning](https://pytorch.org/docs/stable/data.html#memory-pinning)\n"
+                "text": "Functions reliant on pickle can result in arbitrary code execution.  Consider loading from `state_dict`, using fickling, or switching to a safer serialization method like ONNX\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Functions reliant on pickle can result in arbitrary code execution.  Consider loading from `state_dict`, using fickling, or switching to a safer serialization method like ONNX\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.pickles-in-pytorch.pickles-in-pytorch)\n - [https://blog.trailofbits.com/2021/03/15/never-a-dill-moment-exploiting-machine-learning-pickle-files/](https://blog.trailofbits.com/2021/03/15/never-a-dill-moment-exploiting-machine-learning-pickle-files/)\n"
               },
               "properties": {
                 "precision": "very-high",
                 "tags": [
-                  "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
+                  "trailofbits.python.pickles-in-pytorch.pickles-in-pytorch"
                 ]
               }
             },
@@ -184,27 +184,52 @@
               }
             },
             {
-              "id": "39c821e6-3812-3b56-aecb-2bf70551d74e",
-              "name": "trailofbits.python.pickles-in-pytorch.pickles-in-pytorch",
+              "id": "a26929a1-88d4-3a44-8b5e-3909790e1989",
+              "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "shortDescription": {
-                "text": "Opengrep Finding: trailofbits.python.pickles-in-pytorch.pickles-in-pytorch"
+                "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
               },
               "fullDescription": {
-                "text": "Functions reliant on pickle can result in arbitrary code execution.  Consider loading from `state_dict`, using fickling, or switching to a safer serialization method like ONNX"
+                "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
               },
               "defaultConfiguration": {
                 "enabled": true,
-                "level": "error"
+                "level": "warning"
               },
-              "helpUri": "https://semgrep.dev/r/trailofbits.python.pickles-in-pytorch.pickles-in-pytorch",
+              "helpUri": "https://semgrep.dev/r/trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "help": {
-                "text": "Functions reliant on pickle can result in arbitrary code execution.  Consider loading from `state_dict`, using fickling, or switching to a safer serialization method like ONNX\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Functions reliant on pickle can result in arbitrary code execution.  Consider loading from `state_dict`, using fickling, or switching to a safer serialization method like ONNX\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.pickles-in-pytorch.pickles-in-pytorch)\n - [https://blog.trailofbits.com/2021/03/15/never-a-dill-moment-exploiting-machine-learning-pickle-files/](https://blog.trailofbits.com/2021/03/15/never-a-dill-moment-exploiting-machine-learning-pickle-files/)\n"
+                "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.automatic-memory-pinning.automatic-memory-pinning)\n - [https://pytorch.org/docs/stable/data.html#memory-pinning](https://pytorch.org/docs/stable/data.html#memory-pinning)\n"
               },
               "properties": {
                 "precision": "very-high",
                 "tags": [
-                  "trailofbits.python.pickles-in-pytorch.pickles-in-pytorch"
+                  "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
+                ]
+              }
+            },
+            {
+              "id": "b7906f96-2d48-3ec3-b4d1-a2a40ec43bfa",
+              "name": "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
+              "shortDescription": {
+                "text": "Opengrep Finding: trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
+              },
+              "fullDescription": {
+                "text": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "helpUri": "https://semgrep.dev/r/trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
+              "help": {
+                "text": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules)\n - [https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects](https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
                 ]
               }
             },
@@ -235,31 +260,6 @@
             },
             {
               "id": "5f95dba9-783e-3316-bae7-c36ce13edb61",
-              "name": "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
-              "shortDescription": {
-                "text": "Opengrep Finding: trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
-              },
-              "fullDescription": {
-                "text": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "helpUri": "https://semgrep.dev/r/trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
-              "help": {
-                "text": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules)\n - [https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects](https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
-                ]
-              }
-            },
-            {
-              "id": "b7906f96-2d48-3ec3-b4d1-a2a40ec43bfa",
               "name": "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
               "shortDescription": {
                 "text": "Opengrep Finding: trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
@@ -384,31 +384,6 @@
               }
             },
             {
-              "id": "9847cac9-9209-344f-834b-573d7d460cc8",
-              "name": "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
-              "shortDescription": {
-                "text": "Opengrep Finding: trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
-              },
-              "fullDescription": {
-                "text": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "helpUri": "https://semgrep.dev/r/trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
-              "help": {
-                "text": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules)\n - [https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects](https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
-                ]
-              }
-            },
-            {
               "id": "2aa7be6e-4673-3d11-99cc-3b78ae904217",
               "name": "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
               "shortDescription": {
@@ -434,7 +409,57 @@
               }
             },
             {
+              "id": "9847cac9-9209-344f-834b-573d7d460cc8",
+              "name": "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
+              "shortDescription": {
+                "text": "Opengrep Finding: trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
+              },
+              "fullDescription": {
+                "text": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "helpUri": "https://semgrep.dev/r/trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
+              "help": {
+                "text": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules)\n - [https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects](https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
+                ]
+              }
+            },
+            {
               "id": "1a32ecc2-3399-3c55-b290-bb7f7a4791e4",
+              "name": "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
+              "shortDescription": {
+                "text": "Opengrep Finding: trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
+              },
+              "fullDescription": {
+                "text": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "helpUri": "https://semgrep.dev/r/trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
+              "help": {
+                "text": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules)\n - [https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects](https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
+                ]
+              }
+            },
+            {
+              "id": "7b83e481-ea02-3fe6-8c68-8ca6be3d1207",
               "name": "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
               "shortDescription": {
                 "text": "Opengrep Finding: trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
@@ -509,31 +534,6 @@
               }
             },
             {
-              "id": "7b83e481-ea02-3fe6-8c68-8ca6be3d1207",
-              "name": "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
-              "shortDescription": {
-                "text": "Opengrep Finding: trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
-              },
-              "fullDescription": {
-                "text": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "helpUri": "https://semgrep.dev/r/trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
-              "help": {
-                "text": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Usage of NumPy library inside PyTorch `$MODULE` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules)\n - [https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects](https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules"
-                ]
-              }
-            },
-            {
               "id": "dd0179fd-9a91-3dd0-81a2-62a1f9f3c3e2",
               "name": "trailofbits.python.numpy-in-pytorch-modules.numpy-in-pytorch-modules",
               "shortDescription": {
@@ -559,7 +559,7 @@
               }
             },
             {
-              "id": "013fc25b-e6d4-30a5-8835-23c3d1ba97b0",
+              "id": "bc1064cf-3848-3b3c-8a57-803c4f590272",
               "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "shortDescription": {
                 "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
@@ -584,7 +584,7 @@
               }
             },
             {
-              "id": "bc1064cf-3848-3b3c-8a57-803c4f590272",
+              "id": "013fc25b-e6d4-30a5-8835-23c3d1ba97b0",
               "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "shortDescription": {
                 "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
@@ -619,68 +619,6 @@
       },
       "language": "en-US",
       "results": [
-        {
-          "ruleId": "b40d7874-bdd5-38ff-a0cb-c808be37148d",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "bert/convert_c4.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 83,
-                  "startColumn": 14,
-                  "endLine": 89,
-                  "endColumn": 6,
-                  "snippet": {
-                    "text": "    loader = DataLoader(\n        dataset=dataset,\n        sampler=None,\n        batch_size=batch_size,\n        num_workers=num_workers,\n        prefetch_factor=prefetch_factor,\n    )"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "30e10eaa2920907e6a0862bff95e8a6ce4b3f0347da9f76481bc9a35298de061b11ebed6a695cd5f7fedb0cf414e0954d2c2acd610984baf1a37b5e0b5b0f096_0"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "7b22bb69-919f-3d87-b14f-88949ed5ea78",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "`return` should never appear inside a class __init__ function. This will cause a runtime error."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "bert/src/bert_layers.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 427,
-                  "startColumn": 17,
-                  "endLine": 427,
-                  "endColumn": 54,
-                  "snippet": {
-                    "text": "                return get_slopes_power_of_2(n_heads)"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "cccaf388ff86c350e019d7adf53879eb3c6a8d99a348653a8b47cc20082b4d727931c60dc9aa43eec2fc50895eadf55895d27541cf45e68655f09b9bb5302a84_1"
-          },
-          "properties": {}
-        },
         {
           "ruleId": "8b66e53e-f4ad-35fc-ab3e-f78ce79c0c52",
           "kind": "fail",
@@ -744,6 +682,68 @@
           "properties": {}
         },
         {
+          "ruleId": "b40d7874-bdd5-38ff-a0cb-c808be37148d",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bert/convert_c4.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 14,
+                  "endLine": 89,
+                  "endColumn": 6,
+                  "snippet": {
+                    "text": "    loader = DataLoader(\n        dataset=dataset,\n        sampler=None,\n        batch_size=batch_size,\n        num_workers=num_workers,\n        prefetch_factor=prefetch_factor,\n    )"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "30e10eaa2920907e6a0862bff95e8a6ce4b3f0347da9f76481bc9a35298de061b11ebed6a695cd5f7fedb0cf414e0954d2c2acd610984baf1a37b5e0b5b0f096_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "7b22bb69-919f-3d87-b14f-88949ed5ea78",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "`return` should never appear inside a class __init__ function. This will cause a runtime error."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bert/src/bert_layers.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 427,
+                  "startColumn": 17,
+                  "endLine": 427,
+                  "endColumn": 54,
+                  "snippet": {
+                    "text": "                return get_slopes_power_of_2(n_heads)"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "cccaf388ff86c350e019d7adf53879eb3c6a8d99a348653a8b47cc20082b4d727931c60dc9aa43eec2fc50895eadf55895d27541cf45e68655f09b9bb5302a84_1"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "66dca197-1044-3ae0-9ac5-027cafb92b72",
           "kind": "fail",
           "level": "warning",
@@ -775,33 +775,33 @@
           "properties": {}
         },
         {
-          "ruleId": "a26929a1-88d4-3a44-8b5e-3909790e1989",
+          "ruleId": "39c821e6-3812-3b56-aecb-2bf70551d74e",
           "kind": "fail",
           "level": "warning",
           "message": {
-            "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
+            "text": "Functions reliant on pickle can result in arbitrary code execution.  Consider loading from `state_dict`, using fickling, or switching to a safer serialization method like ONNX"
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "cifar/data.py",
+                  "uri": "bert/src/bert_layers.py",
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 157,
-                  "startColumn": 9,
-                  "endLine": 164,
-                  "endColumn": 10,
+                  "startLine": 764,
+                  "startColumn": 22,
+                  "endLine": 764,
+                  "endColumn": 55,
                   "snippet": {
-                    "text": "        DataLoader(\n            dataset,\n            batch_size=batch_size,\n            sampler=sampler,\n            drop_last=drop_last,\n            collate_fn=pil_image_collate,\n            **dataloader_kwargs,\n        ),"
+                    "text": "        state_dict = torch.load(pretrained_checkpoint)"
                   }
                 }
               }
             }
           ],
           "fingerprints": {
-            "matchBasedId/v1": "ec5943ef22c36ce92d661c961999de1c59af42d60bae25cd44064032712462a8d1f219c94bd2c2d7b65621ddaf1cd280aa5fd1dd6b842f7f54aa06f58cafbab9_0"
+            "matchBasedId/v1": "fb12611315692dee15b03fa96238d2b882193b75714bfd5e294add12bb055829c2f818e62c6254009750f9091843d9a5bca629cbef4712c9ad078eafe8e9057e_0"
           },
           "properties": {}
         },
@@ -837,33 +837,64 @@
           "properties": {}
         },
         {
-          "ruleId": "39c821e6-3812-3b56-aecb-2bf70551d74e",
+          "ruleId": "a26929a1-88d4-3a44-8b5e-3909790e1989",
           "kind": "fail",
           "level": "warning",
           "message": {
-            "text": "Functions reliant on pickle can result in arbitrary code execution.  Consider loading from `state_dict`, using fickling, or switching to a safer serialization method like ONNX"
+            "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "bert/src/bert_layers.py",
+                  "uri": "cifar/data.py",
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 764,
-                  "startColumn": 22,
-                  "endLine": 764,
-                  "endColumn": 55,
+                  "startLine": 157,
+                  "startColumn": 9,
+                  "endLine": 164,
+                  "endColumn": 10,
                   "snippet": {
-                    "text": "        state_dict = torch.load(pretrained_checkpoint)"
+                    "text": "        DataLoader(\n            dataset,\n            batch_size=batch_size,\n            sampler=sampler,\n            drop_last=drop_last,\n            collate_fn=pil_image_collate,\n            **dataloader_kwargs,\n        ),"
                   }
                 }
               }
             }
           ],
           "fingerprints": {
-            "matchBasedId/v1": "fb12611315692dee15b03fa96238d2b882193b75714bfd5e294add12bb055829c2f818e62c6254009750f9091843d9a5bca629cbef4712c9ad078eafe8e9057e_0"
+            "matchBasedId/v1": "ec5943ef22c36ce92d661c961999de1c59af42d60bae25cd44064032712462a8d1f219c94bd2c2d7b65621ddaf1cd280aa5fd1dd6b842f7f54aa06f58cafbab9_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "b7906f96-2d48-3ec3-b4d1-a2a40ec43bfa",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Usage of NumPy library inside PyTorch `RandomResizePair` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "deeplab/transforms.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 102,
+                  "startColumn": 24,
+                  "endLine": 102,
+                  "endColumn": 49,
+                  "snippet": {
+                    "text": "        resize_scale = np.random.random_sample() * ("
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "07814445d38e2953945c6669a54c67b242a950777e06b209cb125b93a0afbc9838d7e2b6c23822fdb97014317e907c4d6267ce7c2bc10ad5e334cac8a8969611_0"
           },
           "properties": {}
         },
@@ -926,37 +957,6 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "d158150a9dc41ca481b257564f65e8dabc7a615ded688d2761d70737cfd49246325680ca3fe6d3c283212e4ddcb01d4d18713e31af37e4bfdf9211b1f9aa4d41_0"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "b7906f96-2d48-3ec3-b4d1-a2a40ec43bfa",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Usage of NumPy library inside PyTorch `RandomResizePair` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "deeplab/transforms.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 102,
-                  "startColumn": 24,
-                  "endLine": 102,
-                  "endColumn": 49,
-                  "snippet": {
-                    "text": "        resize_scale = np.random.random_sample() * ("
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "07814445d38e2953945c6669a54c67b242a950777e06b209cb125b93a0afbc9838d7e2b6c23822fdb97014317e907c4d6267ce7c2bc10ad5e334cac8a8969611_0"
           },
           "properties": {}
         },
@@ -1085,37 +1085,6 @@
           "properties": {}
         },
         {
-          "ruleId": "9847cac9-9209-344f-834b-573d7d460cc8",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Usage of NumPy library inside PyTorch `PhotometricDistoration` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "deeplab/transforms.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 265,
-                  "startColumn": 12,
-                  "endLine": 265,
-                  "endColumn": 32,
-                  "snippet": {
-                    "text": "        if np.random.randint(2):"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "e7ce855c1844da41066e3c67784dad302b8d2be66e85c5a6a5d9b8830ab5a8ade57510a987e0da0a41c3221d23e1979534e720c359174e7d3e5c2970bd594869_3"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "2aa7be6e-4673-3d11-99cc-3b78ae904217",
           "kind": "fail",
           "level": "warning",
@@ -1147,6 +1116,37 @@
           "properties": {}
         },
         {
+          "ruleId": "9847cac9-9209-344f-834b-573d7d460cc8",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Usage of NumPy library inside PyTorch `PhotometricDistoration` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "deeplab/transforms.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 265,
+                  "startColumn": 12,
+                  "endLine": 265,
+                  "endColumn": 32,
+                  "snippet": {
+                    "text": "        if np.random.randint(2):"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "e7ce855c1844da41066e3c67784dad302b8d2be66e85c5a6a5d9b8830ab5a8ade57510a987e0da0a41c3221d23e1979534e720c359174e7d3e5c2970bd594869_3"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "1a32ecc2-3399-3c55-b290-bb7f7a4791e4",
           "kind": "fail",
           "level": "warning",
@@ -1174,6 +1174,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "fe4daefd2a82567d7ceb418fbbd31aece15a8d72684326b9bbf86ec97116ef41e3d8ca39290288d9f09e5b1a041923817dd3116bfe3b898de3b5eea725a591ee_2"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "7b83e481-ea02-3fe6-8c68-8ca6be3d1207",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Usage of NumPy library inside PyTorch `PhotometricDistoration` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "deeplab/transforms.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 273,
+                  "startColumn": 26,
+                  "endLine": 273,
+                  "endColumn": 64,
+                  "snippet": {
+                    "text": "            hue_factor = np.random.uniform(-self.hue, self.hue)"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "fe4daefd2a82567d7ceb418fbbd31aece15a8d72684326b9bbf86ec97116ef41e3d8ca39290288d9f09e5b1a041923817dd3116bfe3b898de3b5eea725a591ee_3"
           },
           "properties": {}
         },
@@ -1240,37 +1271,6 @@
           "properties": {}
         },
         {
-          "ruleId": "7b83e481-ea02-3fe6-8c68-8ca6be3d1207",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Usage of NumPy library inside PyTorch `PhotometricDistoration` module was found. Avoid mixing these libraries for efficiency and proper ONNX loading"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "deeplab/transforms.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 273,
-                  "startColumn": 26,
-                  "endLine": 273,
-                  "endColumn": 64,
-                  "snippet": {
-                    "text": "            hue_factor = np.random.uniform(-self.hue, self.hue)"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "fe4daefd2a82567d7ceb418fbbd31aece15a8d72684326b9bbf86ec97116ef41e3d8ca39290288d9f09e5b1a041923817dd3116bfe3b898de3b5eea725a591ee_3"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "dd0179fd-9a91-3dd0-81a2-62a1f9f3c3e2",
           "kind": "fail",
           "level": "warning",
@@ -1302,37 +1302,6 @@
           "properties": {}
         },
         {
-          "ruleId": "013fc25b-e6d4-30a5-8835-23c3d1ba97b0",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "llm/convert_c4.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 78,
-                  "startColumn": 14,
-                  "endLine": 84,
-                  "endColumn": 6,
-                  "snippet": {
-                    "text": "    loader = DataLoader(\n        dataset=dataset,\n        sampler=None,\n        batch_size=batch_size,\n        num_workers=num_workers,\n        prefetch_factor=prefetch_factor,\n    )"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "066ac3c44dab0e960bdbcce58888f49521e72de34a57316d16e8344715d4f8d0cce9ac917da3043ca6e2c3309191db72bd8c8d5382ee5f241bac46f23476f835_0"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "bc1064cf-3848-3b3c-8a57-803c4f590272",
           "kind": "fail",
           "level": "warning",
@@ -1360,6 +1329,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "0022c97cc016282f541f2fc48e7998a43a2a104307156f6c416ff0622ada3032036aac6607a849e258ca1decf37ba34cb5834a3ab176aef5eaad74a85cef88ff_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "013fc25b-e6d4-30a5-8835-23c3d1ba97b0",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "llm/convert_c4.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 14,
+                  "endLine": 84,
+                  "endColumn": 6,
+                  "snippet": {
+                    "text": "    loader = DataLoader(\n        dataset=dataset,\n        sampler=None,\n        batch_size=batch_size,\n        num_workers=num_workers,\n        prefetch_factor=prefetch_factor,\n    )"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "066ac3c44dab0e960bdbcce58888f49521e72de34a57316d16e8344715d4f8d0cce9ac917da3043ca6e2c3309191db72bd8c8d5382ee5f241bac46f23476f835_0"
           },
           "properties": {}
         }
